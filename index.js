@@ -43,6 +43,11 @@ const CincinnatiCountryDaySchool = 36;
 const Lakewood = 37;
 const Independence = 38;
 const Whetstone = 39;
+const EmmanuelChristianSchool = 40;
+const WhitehallYearling = 41;
+const Centennial = 42;
+const Northridge = 43;
+const Olentangy = 44;
 
 
 network.train([
@@ -52,6 +57,8 @@ network.train([
   { input: [TheWellingtonSchool, WorthingtonChristianSchool], output: [0]}, //Aug 21
   { input: [TheWellingtonSchool, FisherCatholic], output: [0]}, //Aug 27
   { input: [TheWellingtonSchool, BishopRosecrans], output: [0]}, //Aug 29
+  { input: [TheWellingtonSchool, HarvestPrepAcademy], output: [0]}, //Sep 5
+  //{ input: [TheWellingtonSchool, DaytonChristianSchool], output: [1]}, //Sep 8
 
 // ================================================ WORTHINGTON CHRISTIAN SCHOOL ===========================================\\  
 
@@ -60,12 +67,14 @@ network.train([
   { input: [WorthingtonChristianSchool, MadisonChristianSchool], output: [0]}, // Aug 23
   { input: [WorthingtonChristianSchool, TreeOfLifeSchool], output: [0]}, //Aug 25
   { input: [WorthingtonChristianSchool, DaytonChristianSchool], output: [1]}, //Sep 1
+  { input: [WorthingtonChristianSchool, ColumbusAcademy], output: [1]}, //Sep 5
 
 // ================================================== FISHER CATHOLIC ================================================\\
 
   { input: [FisherCatholic, Pleasant], output: [0]}, // Aug 17
   { input: [FisherCatholic, TheWellingtonSchool], output: [1]}, // Aug 27
   { input: [FisherCatholic, GroveCityChristianSchool], output: [1]}, // Aug 29
+  { input: [FisherCatholic, BishopRosecrans], output: [1]}, // Sep 5
 
 // ===================================================== BISHOP ROSECRANS ================================================== \\
 
@@ -74,10 +83,13 @@ network.train([
   { input: [BishopRosecrans, ColumbusAcademy], output: [1]}, // Aug 22
   { input: [BishopRosecrans, LickingHeights], output: [0]}, // Aug 27
   { input: [BishopRosecrans, TheWellingtonSchool], output: [1]}, // Aug 29
+  { input: [BishopRosecrans, FisherCatholic], output: [0]}, // Sep 5
 
 // ==================================================== HARVEST PREP ACADEMY ================================================= \\
 
   { input: [HarvestPrepAcademy, South], output: [1]}, // Aug 18
+  { input: [HarvestPrepAcademy, TheWellingtonSchool], output: [1]}, // Sep 5
+  //{ input: [HarvestPrepAcademy, GroveCityChristianSchool], output: [1]}, // Sep 8
 
 // ====================================================== DAYTON CHRISTIAN SCHOOL ================================================ \\
 
@@ -85,12 +97,16 @@ network.train([
   { input: [DaytonChristianSchool, MiamiValleySchool], output: [0]},  // Aug 30
   { input: [DaytonChristianSchool, WorthingtonChristianSchool], output: [0]},  // Sep 1
   { input: [DaytonChristianSchool, CincinnatiCountryDaySchool], output: [0]},  // Sep 4
+  { input: [DaytonChristianSchool, EmmanuelChristianSchool], output: [0]},  // Sep 6
+  //{ input: [DaytonChristianSchool, TheWellingtonSchool], output: [1]},  // Sep 8
 
 // ======================================================= GROVE CITY CHRISTIAN SCHOOL ======================================== \\
 
   { input: [GroveCityChristianSchool, DelawareChristianSchool], output: [0]}, // Aug 23
   { input: [GroveCityChristianSchool, BishopReady], output: [0]}, // Aug 25
   { input: [GroveCityChristianSchool, FisherCatholic], output: [0]}, // Aug 29
+  { input: [GroveCityChristianSchool, TreeOfLifeSchool], output: [1]}, // Sep 6
+  //{ input: [GroveCityChristianSchool, HarvestPrepAcademy], output: [0]}, // Sep 8
 
 // ========================================================= GRANDVIEW HEIGHTS ===============================================\\
 
@@ -98,6 +114,8 @@ network.train([
   { input: [GrandviewHeights, TroyChristianSchool], output: [1]}, // Aug 18
   { input: [GrandviewHeights, MadisonChristianSchool], output: [0]}, // Aug 21
   { input: [GrandviewHeights, Fairbanks], output: [0]}, // Aug 25
+  { input: [GrandviewHeights, WhitehallYearling], output: [1]}, // Sep 5
+  //{ input: [GrandviewHeights, Centennial], output: [0]}, // Sep 8
 
 // ======================================================== COLUMBUS ACADEMY ============================================== \\
 
@@ -106,45 +124,57 @@ network.train([
   { input: [ColumbusAcademy, PickeringtonNorth], output: [1]}, // Aug 25
   { input: [ColumbusAcademy, WestervilleSouth], output: [1]}, // Aug 30
   { input: [ColumbusAcademy, BloomCarroll], output: [0]}, // Sep 1
+  { input: [ColumbusAcademy, WorthingtonChristianSchool], output: [0]}, // Sep 5
 
 // ============================================================ GRANVILLE =============================================== \\
 
   { input: [Granville, PickeringtonCentral], output: [1]}, // Aug 21
   { input: [Granville, LickingValley], output: [0]}, // Aug 22
   { input: [Granville, Lakewood], output: [0]}, // Aug 30
+  { input: [Granville, Northridge], output: [0]}, // Sep 6
 
 // ============================================================== HARVEST PREP ACADEMY ========================================== \\
 
   { input: [HarvestPrepAcademy, South], output: [1]}, // Aug 18
+  { input: [HarvestPrepAcademy, TheWellingtonSchool], output: [1]}, // Sep 5
+  //{ input: [HarvestPrepAcademy, GroveCityChristianSchool], output: [1]}, // Sep 8
 
 // ========================================================== BISHOP HARTLEY ====================================================== \\
 
   { input: [BishopHartley, BloomCarroll], output: [1]}, // Aug 18
   { input: [BishopHartley, HamiltonTownship], output: [0]}, // Aug 23
   { input: [BishopHartley, Independence], output: [0]}, // Aug 30
+  { input: [BishopHartley, BishopWatterson], output: [0]}, // Sep 4
+  { input: [BishopHartley, Bexley], output: [1]}, // Sep 6
 
 // ===================================================== FISHER CATHOLIC ==================================================== \\
 
   { input: [FisherCatholic, Pleasant], output: [0]}, // Aug 17
   { input: [FisherCatholic, TheWellingtonSchool], output: [1]}, //Aug 27
   { input: [FisherCatholic, GroveCityChristianSchool], output: [1]}, //Aug 29
+  { input: [FisherCatholic, BishopRosecrans], output: [1]}, //Sep 5
 
 // ===================================================== BEXLEY ============================================================ \\
 
   { input: [Bexley, BloomCarroll], output: [0]}, // Aug 22
   { input: [Bexley, Chillicothe], output: [0]}, // Aug 25
   { input: [Bexley, Zanesville], output: [0]}, // Sep 1
+  { input: [Bexley, BishopHartley], output: [0]}, // Sep 6
+  //{ input: [Bexley, Olentangy], output: [1]}, // Sep 8
 
 // ================================================== GROVE CITY CHRISTIAN SCHOOL ================================================= \\
 
   { input: [GroveCityChristianSchool, DelawareChristianSchool], output: [0]}, // Aug 23
   { input: [GroveCityChristianSchool, BishopReady], output: [0]}, // Aug 25
   { input: [GroveCityChristianSchool, FisherCatholic], output: [0]}, // Aug 29
+  { input: [GroveCityChristianSchool, TreeOfLifeSchool], output: [1]}, // Sep 6
+  //{ input: [GroveCityChristianSchool, HarvestPrepAcademy], output: [0]}, // Sep 8
 
 // ====================================================== BISHOP WATTERSON ===================================================== \\
 
   { input: [BishopWatterson, JonathanAlder], output: [0]}, // Aug 17
-  { input: [BishopWatterson, Whetstone], output: [1]} // Aug 30
+  { input: [BishopWatterson, Whetstone], output: [1]}, // Aug 30
+  { input: [BishopWatterson, BishopHartley], output: [1]} // Sep 4
 
 // ======================================================= END =============================================================== \\
  // { input: [], output: []},
@@ -153,11 +183,13 @@ network.train([
 //August 21 Correct 97%
 //August 27 Wrong 37%
 //August 29 Wrong 48%
-//September 5 90%
+//September 5 Correct 90%
+//September 8 Correct 44%
+//September 11 39%
 
-//Correct: 1
+//Correct: 3
 //Wrong: 2
-const output = network.run([HarvestPrepAcademy, TheWellingtonSchool]); //Chance of wellington winning
+const output = network.run([GroveCityChristianSchool, TheWellingtonSchool]); //Chance of wellington winning
 let fullOutput = output * 100
 
 if (fullOutput >=50) {
